@@ -12,6 +12,59 @@
     <div id="resposta">Testando Javascript</div>
 
     <script type="text/Javascript">
+
+        let nomes = ["miltin", "joaozin"];
+        //nomes.forEach();
+        
+        function alerta(msg) {
+            console.log(msg);
+            return msg();
+        }
+
+        function executandoSirene() {
+            console.log('Executando a sirene.... buuuuuuuuuu');
+        }
+        function executandoSireneSilenciosa() {
+            console.log('Executando a sirene......');
+        }
+
+        //alerta(executandoSirene);
+        alerta(executandoSireneSilenciosa);
+
+        /*function somar(n1,n2) {
+            return n1 + n2;            
+        }*/
+        function soma(n1) {
+            return function (n2) {
+                return n1 + n2;                
+            }
+        }
+
+        let s = soma(2);
+        console.log(s);
+        //let n = s(3);
+        //console.log(n);
+        console.log(s(3));
+        let n =soma(2)(3);
+        console.log(n);
+
+        function multiplicador(n1) {
+            return function (n2) {
+                return function (n3) {
+                    return n1 * n2 * n3;
+                }
+            }            
+        }
+
+        let resposta = multiplicador(2)(3)(2);
+        console.log(resposta);
+
+// A IDEIA DE CALLBACK É ESSA! VOCE TRABALHAR COM FUNÇÕES DE RETORNO OU FUNÇÕES COMO PARÂMETRO.
+
+
+        //alerta('oi bom dia')
+
+/*        
         const imprimirNoHTML = (texto = 'Não foi enviado nada') => {
             let h1 = document.getElementById('resposta');
             h1.innerNTML=texto;
@@ -38,7 +91,7 @@
 
         alerta(n);
         alerta(novoNumero);
-        
+*/       
     </script>
 
 </body>
